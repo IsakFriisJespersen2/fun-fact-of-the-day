@@ -16,16 +16,17 @@
 </script>
 
 <main class="flex flex-col justify-center items-center h-full w-full space-y-8">
-		<section class="space-y-1">
+		<header class="space-y-1">
 			<h1 class="text-5xl font-thin">Fun Fact Of The Day</h1>
-			<p class="flex justify-end font-thin">This is a fact generated with Chat-gpt</p>
-		</section>
+      <p class="flex justify-end font-thin">Fact a day keeps gloom away!</p>
+		</header>
 		<section class="w-1/2 h-96 max-w-4xl">
 			<div class="font-mono">
-				{#if !!fact}
-					<div class="px-6 py-8 border rounded-md">
-						<p class="text-lg">{fact}</p>
-					</div>
+        {#if !!fact}
+        <div class="px-6 py-8 border rounded-md">
+          <p class="text-lg">{fact}</p>
+        </div>
+        <p class="flex justify-end font-thin mt-2">- Chat GPT</p>
 				{:else}
 					<div class="flex justify-center items-center">
 						<Helix />
