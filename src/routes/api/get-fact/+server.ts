@@ -7,12 +7,13 @@ const openai = new OpenAI({
 let x = 0;
 let messages: (string | undefined | null)[] = [];
 
-export async function GET() {
+export async function POST({ request }: { request: Request }) {
+	const body = await request.json();
 	const chatCompletion = await openai.chat.completions.create({
 		messages: [
 			{
 				role: 'assistant',
-				content: `Give me a random fun fact that is no more than 400 chars long. And it should not be one of these facts ${messages.join(', ')}`
+				content: `Give me a random fun fact that is no more than 400 chars long. The fact should be about one of the following themes ${body.themes.join(', ')} And it should not be one of these facts ${messages.join(', ')}`
 			}
 		],
 		model: 'gpt-4'
