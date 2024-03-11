@@ -61,39 +61,41 @@
 		<h1 class="text-5xl font-thin">Fun Fact Of The Day</h1>
 		<p class="flex justify-end font-thin">Fact a day keeps gloom away!</p>
 	</header>
-	<section class="w-1/2 h-96 max-w-4xl">
-		<div class="font-mono">
-			{#if !isLoading && !!data}
-				<div class="px-6 py-8 border rounded-md">
-					<p class="text-lg">{data.fact}</p>
-					<div class="text-end mt-2 text-blue-300">
-						<a
-							href={`${data.source.substring(data.source.indexOf('(') + 1, data.source.indexOf(')'))}`}
-						>
-							{data.source.substring(data.source.indexOf('['), data.source.indexOf(']') + 1)}</a
-						>
+	<div class="max-w-3xl w-full px-8">
+		<section class="h-96">
+			<div class="font-mono">
+				{#if !isLoading && !!data}
+					<div class="px-6 py-8 border rounded-md">
+						<p class="text-lg">{data.fact}</p>
+						<div class="text-end mt-2 text-blue-300">
+							<a
+								href={`${data.source.substring(data.source.indexOf('(') + 1, data.source.indexOf(')'))}`}
+							>
+								{data.source.substring(data.source.indexOf('['), data.source.indexOf(']') + 1)}</a
+							>
+						</div>
 					</div>
-				</div>
-				<p class="flex justify-end font-thin mt-2">- Chat GPT</p>
-			{:else}
-				<div class="flex justify-center items-center">
-					<Helix />
-				</div>
-			{/if}
-		</div>
-	</section>
-	<section class="font-mono space-y-2 flex flex-col justify-start w-1/2">
-		<h2 class="text-xl">Im interested in:</h2>
-		<div class="flex flex-wrap gap-2 max-w-xl">
-			{#each themes as theme, i}
-				<button
-					type="button"
-					data-active={theme.active}
-					on:click={() => toggleTheme(i)}
-					class="border rounded-md p-2 hover:bg-orange-700 active: data-[active=true]:bg-orange-700"
-					>{theme.title}</button
-				>
-			{/each}
-		</div>
-	</section>
+					<p class="flex justify-end font-thin mt-2">- Chat GPT</p>
+				{:else}
+					<div class="flex justify-center items-center">
+						<Helix />
+					</div>
+				{/if}
+			</div>
+		</section>
+		<section class="font-mono space-y-2 flex flex-col justify-start">
+			<h2 class="text-xl">What are your interests?:</h2>
+			<div class="flex flex-wrap gap-2 max-w-xl">
+				{#each themes as theme, i}
+					<button
+						type="button"
+						data-active={theme.active}
+						on:click={() => toggleTheme(i)}
+						class="border rounded-md p-2 hover:bg-orange-700 active: data-[active=true]:bg-orange-700"
+						>{theme.title}</button
+					>
+				{/each}
+			</div>
+		</section>
+	</div>
 </main>
