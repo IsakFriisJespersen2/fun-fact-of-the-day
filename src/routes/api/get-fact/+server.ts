@@ -4,7 +4,6 @@ const openai = new OpenAI({
 	apiKey: process.env.OPENAI_API_KEY // This is the default and can be omitted
 });
 
-let x = 0;
 let messages: (string | undefined | null)[] = [];
 
 export async function POST({ request }: { request: Request }) {
@@ -28,7 +27,6 @@ export async function POST({ request }: { request: Request }) {
 	});
 
 	messages.push(chatCompletion.choices.at(0)?.message.content);
-	console.log(chatCompletion.choices.at(0)?.message.content);
 
 	return new Response(chatCompletion.choices.at(0)?.message.content, {
 		status: 200

@@ -34,7 +34,6 @@
 
 	// Reactive statement to detect changes in theme activation
 	$: if (browser) {
-		console.log('Hej');
 		const activeThemes = themes.filter((t) => t.active).map((t) => t.title);
 		if (activeThemes.length > 0) {
 			getFact(activeThemes).then((fetchedFact) => {
@@ -42,8 +41,6 @@
 			});
 		}
 	}
-
-	console.log(data);
 
 	// Function to toggle theme active state and trigger reactivity
 	function toggleTheme(index: number) {
@@ -56,17 +53,17 @@
 	});
 </script>
 
-<main class="flex flex-col justify-center items-center h-full w-full space-y-8">
-	<header class="space-y-1">
-		<h1 class="text-5xl font-thin">Fun Fact Of The Day</h1>
+<main class="flex flex-col tablet:justify-center items-center h-full w-full px-4 tablet:px-8 py-4">
+	<header class="space-y-2">
+		<h1 class="text-4xl tablet:text-5xl font-thin">Fun Fact Of The Day</h1>
 		<p class="flex justify-end font-thin">Fact a day keeps gloom away!</p>
 	</header>
-	<div class="max-w-3xl w-full px-8">
-		<section class="h-96">
+	<div class="max-w-3xl w-full space-y-4">
+		<section class="min-h-72">
 			<div class="font-mono">
 				{#if !isLoading && !!data}
-					<div class="px-6 py-8 border rounded-md">
-						<p class="text-lg">{data.fact}</p>
+					<div class="px-6 py-8 border rounded-md text-md tablet:text-lg">
+						<p class="">{data.fact}</p>
 						<div class="text-end mt-2 text-blue-300">
 							<a
 								href={`${data.source.substring(data.source.indexOf('(') + 1, data.source.indexOf(')'))}`}
