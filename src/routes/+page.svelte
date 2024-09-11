@@ -3,6 +3,9 @@
 	import { onMount } from 'svelte';
 	import Helix from '$lib/helix.svelte';
 	import { browser } from '$app/environment';
+	export let data;
+	console.log(data);
+
 
 	$: data = null as { fact: string; source: string } | null;
 	let isLoading = false;

@@ -1,0 +1,12 @@
+FROM node:20-alpine
+
+
+RUN corepack enable yarn && yarn -v
+
+RUN yarn install
+
+WORKDIR /app
+
+COPY . .
+
+EXPOSE 5173

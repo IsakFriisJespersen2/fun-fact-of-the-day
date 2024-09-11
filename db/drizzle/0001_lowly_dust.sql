@@ -1,0 +1,1 @@
+ALTER TABLE "fact" ALTER COLUMN "id" SET DATA TYPE numeric;

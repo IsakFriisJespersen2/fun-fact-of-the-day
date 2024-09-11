@@ -1,0 +1,50 @@
+{
+  "id": "69dee34f-1234-4958-bba4-b01e2763a9ec",
+  "prevId": "5436ed6c-deb1-476b-b6d6-6beb4805fe84",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.fact": {
+      "name": "fact",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "numeric",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "text": {
+          "name": "text",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "upVotes": {
+          "name": "upVotes",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "downVotes": {
+          "name": "downVotes",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "sequences": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}
